@@ -1,0 +1,23 @@
+{
+  "skill_name": "idp-architect",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Here is story IDP-001: Self-Service Golang Microservice Creation [paste full story]. Produce the ADR.",
+      "expected_output": "A complete ADR following the template: Decision, Components table, Scaffolder action chain with rollback per step, at least 2 Alternatives Considered, Risks table, Conventions Established, and Implementation Guidance with sequencing.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Here's a story that requires a brand-new Backstage plugin for showing per-team cost dashboards. Design the architecture.",
+      "expected_output": "ADR includes a plugin specification (route, API surface, data model) and explicitly calls out maintenance cost as a Negative consequence.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "This story touches the Catalog's core entity schema directly. Architect it.",
+      "expected_output": "The ADR explicitly flags blast radius on shared infrastructure and recommends a staged rollout or feature flag.",
+      "files": []
+    }
+  ]
+}

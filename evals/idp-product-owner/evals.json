@@ -1,0 +1,23 @@
+{
+  "skill_name": "idp-product-owner",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Developers need a way to provision a new Golang service.",
+      "expected_output": "A single, well-scoped user story following the template: persona = developer, includes acceptance criteria covering repo creation, GitOps config, namespace, CI pipeline, and Catalog registration; Out of Scope excludes database/domain provisioning.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Paste a noisy Slack thread where three engineers complain about not knowing which services are deprecated, and one suggests 'maybe Backstage could show a deprecation badge or something'. Turn this into a story.",
+      "expected_output": "A story that extracts the real need (visibility into deprecated services) rather than just the literal suggestion, with Catalog/plugin touchpoints and a persona of developer or tech lead.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "We need a full deployment experience: service creation, database provisioning, monitoring setup, and custom domain configuration.",
+      "expected_output": "The PO should split this into multiple smaller stories rather than producing one oversized story, with a brief rationale for the split and sequencing.",
+      "files": []
+    }
+  ]
+}
