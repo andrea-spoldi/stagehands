@@ -88,6 +88,31 @@ you're running this elsewhere.
 - **Phase 2**: Engineer agent — implements templates/plugins from an ADR.
 - **Phase 3**: QA + Tech Writer agents — close the loop on verification and documentation.
 
+## Optional: Jira MCP integration
+
+Both Phase 1 agents know how to use a Jira/Atlassian MCP tool **if one is connected
+in the session** — they'll fetch a ticket by key or URL instead of asking you to
+paste it, and stamp the resulting story/ADR with the ticket key for traceability.
+
+This is a runtime capability, not something the skill installs — the skill just
+contains instructions for *how* to use the tool when it's there. You still need to
+actually connect Jira:
+
+- **Claude.ai**: connect the Atlassian connector under Settings.
+- **Claude Code**: configure the Atlassian/Jira MCP server (see Claude Code MCP docs).
+- **API**: pass the Jira MCP server URL in the `mcp_servers` parameter of your request.
+
+No connector? The agents fall back to working from pasted ticket text — nothing
+breaks, you just paste instead of pointing at a key.
+
+Conventions for how tickets map to stories/ADRs (key format, where acceptance
+criteria live, write-action boundaries) live in
+`references/backstage-idp-conventions.md` → **Jira Integration Conventions**.
+
+Write actions (commenting back on a ticket, transitioning status) always require
+your explicit confirmation in chat — the agents never do this silently, even when
+connected.
+
 ## Customizing for your org
 
 Edit `references/backstage-idp-conventions.md` to match your Git provider,
