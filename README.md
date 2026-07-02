@@ -5,9 +5,8 @@ A suite of Claude skills that act as a virtual engineering team for a
 defined persona, input contract, and output contract.
 
 ```
-Raw Request → [Product Owner] → User Story → [Architect] → ADR → [Engineer*] → Implementation
+Raw Request → [Product Owner] → User Story → [Architect] → ADR → [Engineer] → Implementation
 ```
-\* planned, not yet built — see [Roadmap](#roadmap)
 
 ## Repo Layout
 
@@ -24,7 +23,7 @@ stagehands/
 │   ├── idp-architect/
 │   │   ├── SKILL.md
 │   │   └── references/
-│   └── idp-engineer/                  # Phase 2 — placeholder
+│   └── idp-engineer/                  # Phase 2
 │       ├── SKILL.md
 │       └── references/
 │
@@ -65,6 +64,7 @@ cd stagehands
 ./scripts/package-all.sh
 # → dist/idp-product-owner.skill
 # → dist/idp-architect.skill
+# → dist/idp-engineer.skill
 ```
 
 By default this looks for Anthropic's `package_skill.py` at
@@ -78,14 +78,14 @@ you're running this elsewhere.
 |----------------------|----------|---------------|----------|
 | IDP Product Owner    | ✅ Active | Raw request    | User story |
 | IDP Architect        | ✅ Active | User story     | ADR |
-| IDP Engineer         | 🚧 Planned | ADR          | Implementation |
+| IDP Engineer         | ✅ Active | ADR          | Implementation |
 | IDP QA               | 🗒️ Idea  | Code + story  | Test results |
 | IDP Tech Writer      | 🗒️ Idea  | ADR + code    | TechDocs |
 
 ## Roadmap
 
 - **Phase 1** (done): Product Owner + Architect — highest ROI, establishes the pipeline and shared conventions.
-- **Phase 2**: Engineer agent — implements templates/plugins from an ADR.
+- **Phase 2** (done): Engineer agent — implements templates/plugins from an ADR.
 - **Phase 3**: QA + Tech Writer agents — close the loop on verification and documentation.
 
 ## Optional: Jira MCP integration

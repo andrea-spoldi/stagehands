@@ -1,7 +1,7 @@
 # Walkthrough: Golang Service Creation
 
-This example shows the full pipeline from raw request to ADR, as a reference
-for onboarding new contributors to the agent suite.
+This example shows the full pipeline from raw request to implementation, as a
+reference for onboarding new contributors to the agent suite.
 
 ## 1. Raw Input
 
@@ -24,12 +24,26 @@ Flux PR → Catalog register), each step annotated with failure mode and
 rollback strategy, 3 alternatives considered and rejected, risk table,
 and a clear implementation sequencing.
 
+## 4. IDP Engineer Output
+
+See `skills/idp-engineer/SKILL.md` → Examples for the full implementation
+(implementing ADR-001).
+
+Key shape: components built in the ADR's own sequencing order (skeleton →
+`flux:create-pr` custom action → template wiring → E2E validation still open),
+a Checklist Cross-Reference that answers every item from the ADR's own
+"Checklist for Implementation," and a PR description ready to open against the
+platform's template repo.
+
 ## What to notice
 
 - The PO story never prescribes *how* (no mention of Scaffolder actions or
   Flux) — only *what* and *why*. That's the Architect's job.
 - The Architect's "Conventions Established" section is what keeps the next
   five templates consistent — read it before designing a new template.
-- Both outputs cite `references/backstage-idp-conventions.md` for naming and
-  format — if your org's conventions differ, edit that file once and both
-  agents follow.
+- The Engineer doesn't redesign anything from the ADR — it implements the
+  Scaffolder Action Chain step-for-step and cites the ADR's own idempotency/
+  rollback notes to prove each step matches what was designed.
+- All three outputs cite `references/backstage-idp-conventions.md` for naming
+  and format — if your org's conventions differ, edit that file once and all
+  three agents follow.

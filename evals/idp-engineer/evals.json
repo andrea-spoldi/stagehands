@@ -1,0 +1,23 @@
+{
+  "skill_name": "idp-engineer",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Here is ADR-001: Self-Service Golang Microservice Creation via Scaffolder [paste full ADR]. Implement it.",
+      "expected_output": "A complete implementation following the template: Sequencing Followed matching the ADR's Implementation Guidance order, a component per row in the ADR's Components table (skeleton, flux:create-pr custom action, template YAML, GitOps config, catalog entity), each with an Idempotency/rollback note tying back to the ADR's Scaffolder Action Chain, a Checklist Cross-Reference covering every item from the ADR's own Checklist for Implementation, and a PR description linking ADR-001 and IDP-001.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Here is an ADR with a Components table and Implementation Guidance, but no Scaffolder Action Chain section, even though the story clearly requires a multi-step template. Implement it.",
+      "expected_output": "The engineer stops and flags the missing Scaffolder Action Chain as a design gap rather than inventing step order, failure modes, or rollback strategy itself. It asks for the missing section (or a pointer back to the Architect) instead of producing implementation that guesses at rollback behavior.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Here is an ADR that names a Scaffolder template `golang-service-create`, but backstage-idp-conventions.md's naming convention for templates is `create-<what>`. Implement it.",
+      "expected_output": "The engineer explicitly flags the naming conflict between the ADR and the conventions doc rather than silently picking one. It does not proceed by quietly renaming to match the convention or quietly keeping the ADR's name without calling out the discrepancy.",
+      "files": []
+    }
+  ]
+}
